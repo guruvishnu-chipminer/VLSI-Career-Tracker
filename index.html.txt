@@ -1,9 +1,266 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>VLSI Tracker</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VLSI Career Tracker</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h1>My VLSI Career Tracker</h1>
+
+    <header>
+        <h1>🚀 VLSI Career Tracker</h1>
+        <p>Front-End VLSI Roadmap (Goal: August 4)</p>
+    </header>
+
+    <!-- Countdown Section -->
+    <section class="dashboard">
+
+        <div class="card">
+            <h2>⏳ August 4 Countdown</h2>
+            <h3 id="aug4Timer">Loading...</h3>
+        </div>
+
+        <div class="card">
+            <h2>📅 Month End Countdown</h2>
+            <h3 id="monthTimer">Loading...</h3>
+        </div>
+
+        <div class="card">
+            <h2>🎯 Week Countdown</h2>
+            <h3 id="weekTimer">Loading...</h3>
+        </div>
+
+    </section>
+
+    <!-- Progress Section -->
+
+    <section class="progress-section">
+
+        <div class="card">
+            <h2>Overall Progress</h2>
+
+            <div class="progress-bar">
+                <div id="overallProgress"></div>
+            </div>
+
+            <p id="overallPercent">0%</p>
+        </div>
+
+        <div class="card">
+            <h2>🔥 Current Streak</h2>
+            <h3 id="streak">0 Days</h3>
+        </div>
+
+    </section>
+
+    <!-- Digital Electronics -->
+
+    <section class="tracker-section">
+
+        <h2>📘 Digital Electronics (Morris Mano)</h2>
+
+        <div class="topic-list">
+
+            <label><input type="checkbox" class="task"> Number Systems</label>
+            <label><input type="checkbox" class="task"> Boolean Algebra</label>
+            <label><input type="checkbox" class="task"> Logic Gates</label>
+            <label><input type="checkbox" class="task"> K Maps</label>
+            <label><input type="checkbox" class="task"> Combinational Circuits</label>
+            <label><input type="checkbox" class="task"> Sequential Circuits</label>
+            <label><input type="checkbox" class="task"> Registers</label>
+            <label><input type="checkbox" class="task"> Counters</label>
+            <label><input type="checkbox" class="task"> FSM</label>
+            <label><input type="checkbox" class="task"> Memory Basics</label>
+
+        </div>
+
+    </section>
+
+    <!-- Verilog -->
+
+    <section class="tracker-section">
+
+        <h2>💻 Verilog (Samir Palnitkar)</h2>
+
+        <div class="topic-list">
+
+            <label><input type="checkbox" class="task"> Introduction</label>
+            <label><input type="checkbox" class="task"> Modules</label>
+            <label><input type="checkbox" class="task"> Data Types</label>
+            <label><input type="checkbox" class="task"> Operators</label>
+            <label><input type="checkbox" class="task"> Always Blocks</label>
+            <label><input type="checkbox" class="task"> Case Statements</label>
+            <label><input type="checkbox" class="task"> Testbench</label>
+            <label><input type="checkbox" class="task"> Tasks & Functions</label>
+            <label><input type="checkbox" class="task"> FSM Coding</label>
+            <label><input type="checkbox" class="task"> Mini Project</label>
+
+        </div>
+
+    </section>
+
+    <!-- SystemVerilog -->
+
+    <section class="tracker-section">
+
+        <h2>⚙️ SystemVerilog</h2>
+
+        <div class="topic-list">
+
+            <label><input type="checkbox" class="task"> Logic</label>
+            <label><input type="checkbox" class="task"> Interfaces</label>
+            <label><input type="checkbox" class="task"> Packages</label>
+            <label><input type="checkbox" class="task"> Classes</label>
+            <label><input type="checkbox" class="task"> Inheritance</label>
+            <label><input type="checkbox" class="task"> Randomization</label>
+            <label><input type="checkbox" class="task"> Assertions</label>
+            <label><input type="checkbox" class="task"> Coverage</label>
+
+        </div>
+
+    </section>
+
+    <!-- UVM -->
+
+    <section class="tracker-section">
+
+        <h2>🧪 UVM</h2>
+
+        <div class="topic-list">
+
+            <label><input type="checkbox" class="task"> UVM Architecture</label>
+            <label><input type="checkbox" class="task"> Sequence</label>
+            <label><input type="checkbox" class="task"> Driver</label>
+            <label><input type="checkbox" class="task"> Monitor</label>
+            <label><input type="checkbox" class="task"> Agent</label>
+            <label><input type="checkbox" class="task"> Scoreboard</label>
+            <label><input type="checkbox" class="task"> Environment</label>
+            <label><input type="checkbox" class="task"> Test</label>
+
+        </div>
+
+    </section>
+
+    <!-- C Language -->
+
+    <section class="tracker-section">
+
+        <h2>🖥️ C Language</h2>
+
+        <div class="topic-list">
+
+            <label><input type="checkbox" class="task"> Variables</label>
+            <label><input type="checkbox" class="task"> Loops</label>
+            <label><input type="checkbox" class="task"> Arrays</label>
+            <label><input type="checkbox" class="task"> Functions</label>
+            <label><input type="checkbox" class="task"> Pointers</label>
+            <label><input type="checkbox" class="task"> Structures</label>
+            <label><input type="checkbox" class="task"> File Handling</label>
+
+        </div>
+
+    </section>
+
+    <!-- Python -->
+
+    <section class="tracker-section">
+
+        <h2>🐍 Python</h2>
+
+        <div class="topic-list">
+
+            <label><input type="checkbox" class="task"> Variables</label>
+            <label><input type="checkbox" class="task"> Lists</label>
+            <label><input type="checkbox" class="task"> Dictionaries</label>
+            <label><input type="checkbox" class="task"> Functions</label>
+            <label><input type="checkbox" class="task"> File Handling</label>
+            <label><input type="checkbox" class="task"> NumPy</label>
+            <label><input type="checkbox" class="task"> Pandas</label>
+
+        </div>
+
+    </section>
+
+    <!-- AI -->
+
+    <section class="tracker-section">
+
+        <h2>🤖 AI for Chip Design</h2>
+
+        <div class="topic-list">
+
+            <label><input type="checkbox" class="task"> AI in RTL Design</label>
+            <label><input type="checkbox" class="task"> AI in Verification</label>
+            <label><input type="checkbox" class="task"> AI in Physical Design</label>
+            <label><input type="checkbox" class="task"> AI Timing Closure</label>
+
+        </div>
+
+    </section>
+
+    <!-- Aptitude -->
+
+    <section class="tracker-section">
+
+        <h2>🧠 Aptitude</h2>
+
+        <div class="topic-list">
+
+            <label><input type="checkbox" class="task"> Number System</label>
+            <label><input type="checkbox" class="task"> Simplification</label>
+            <label><input type="checkbox" class="task"> HCF & LCM</label>
+            <label><input type="checkbox" class="task"> Ratio & Proportion</label>
+            <label><input type="checkbox" class="task"> Partnership</label>
+            <label><input type="checkbox" class="task"> Average</label>
+            <label><input type="checkbox" class="task"> Ages</label>
+            <label><input type="checkbox" class="task"> Time & Work</label>
+            <label><input type="checkbox" class="task"> Pipes & Cisterns</label>
+            <label><input type="checkbox" class="task"> Time Speed Distance</label>
+            <label><input type="checkbox" class="task"> Boats & Streams</label>
+            <label><input type="checkbox" class="task"> Percentage</label>
+            <label><input type="checkbox" class="task"> Profit & Loss</label>
+            <label><input type="checkbox" class="task"> Simple Interest</label>
+            <label><input type="checkbox" class="task"> Compound Interest</label>
+            <label><input type="checkbox" class="task"> Data Interpretation</label>
+
+        </div>
+
+    </section>
+
+    <!-- English -->
+
+    <section class="tracker-section">
+
+        <h2>🗣️ English</h2>
+
+        <div class="topic-list">
+
+            <label><input type="checkbox" class="task"> Speaking</label>
+            <label><input type="checkbox" class="task"> Listening</label>
+            <label><input type="checkbox" class="task"> Vocabulary</label>
+            <label><input type="checkbox" class="task"> Replying</label>
+            <label><input type="checkbox" class="task"> Reading</label>
+
+        </div>
+
+    </section>
+
+    <!-- Notes -->
+
+    <section class="notes-section">
+
+        <h2>📝 Daily Notes</h2>
+
+        <textarea
+            id="notes"
+            placeholder="Write your daily progress here..."
+        ></textarea>
+
+    </section>
+
+    <script src="script.js"></script>
+
 </body>
 </html>
