@@ -3,30 +3,42 @@
 
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
 
-<title>VLSI Tracker Pro V2</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="style.css">
+    <title>
+        VLSI Tracker Pro V3
+    </title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link
+        rel="stylesheet"
+        href="style.css">
 
 </head>
 
 <body>
 
-<!-- HEADER -->
+<!-- =========================
+     HEADER
+========================= -->
 
 <header class="main-header">
 
-    <div class="logo-section">
+    <div>
 
-        <h1>🚀 VLSI Tracker Pro</h1>
+        <h1>
+            🚀 VLSI Tracker Pro V3
+        </h1>
 
         <p>
-            Front-End VLSI Roadmap
-            | Goal : August 4
+            Front-End VLSI Roadmap | Goal : August 4
         </p>
 
     </div>
@@ -37,78 +49,111 @@
 
 </header>
 
-<!-- DASHBOARD -->
+<!-- =========================
+     DASHBOARD
+========================= -->
 
 <section class="dashboard-grid">
 
     <div class="dashboard-card">
 
-        <h3>⏳ August 4 Countdown</h3>
+        <h3>
+            ⏳ August 4 Countdown
+        </h3>
 
-        <div id="aug4Timer" class="big-number">
+        <div
+            id="aug4Timer"
+            class="big-number">
+
             Loading...
+
         </div>
 
     </div>
 
     <div class="dashboard-card">
 
-        <h3>📅 Month End</h3>
+        <h3>
+            🗓 Month End
+        </h3>
 
-        <div id="monthTimer" class="big-number">
+        <div
+            id="monthTimer"
+            class="big-number">
+
             Loading...
+
         </div>
 
     </div>
 
     <div class="dashboard-card">
 
-        <h3>🎯 Weekly Target</h3>
+        <h3>
+            🎯 Weekly Target
+        </h3>
 
-        <div id="weekTimer" class="big-number">
+        <div
+            id="weekTimer"
+            class="big-number">
+
             Loading...
+
         </div>
 
     </div>
 
     <div class="dashboard-card">
 
-        <h3>🔥 Current Streak</h3>
+        <h3>
+            🔥 Current Streak
+        </h3>
 
-        <div id="streak" class="big-number">
+        <div
+            id="streak"
+            class="big-number">
+
             0
+
         </div>
 
     </div>
 
 </section>
 
-<!-- OVERALL PROGRESS -->
+<!-- =========================
+     OVERALL PROGRESS
+========================= -->
 
 <section class="overall-section">
 
     <div class="overall-card">
 
-        <h2>Interview Readiness</h2>
+        <h2>
+            Interview Readiness
+        </h2>
 
         <div class="progress-container">
 
-            <div
-                id="overallProgress"
-                class="overall-progress">
+            <div id="overallProgress">
+
             </div>
 
         </div>
 
-        <h3 id="overallPercent">
-            0%
-        </h3>
+        <div id="overallPercent">
+
+            0% Interview Ready
+
+        </div>
 
     </div>
 
 </section>
 
-<!-- TABS -->
+<!-- =========================
+     TABS
+========================= -->
 
 <section class="tabs-section">
 
@@ -116,56 +161,126 @@
 
         <button
             class="tab-btn active"
-            onclick="openTab('dashboardTab')">
+            onclick="openTab(event,'dashboardTab')">
+
             Dashboard
+
         </button>
 
         <button
             class="tab-btn"
-            onclick="openTab(event,'studyTab')"
+            onclick="openTab(event,'studyTab')">
+
             Study Tracker
+
         </button>
 
         <button
             class="tab-btn"
-            onclick="openTab('aptitudeTab')">
+            onclick="openTab(event,'aptitudeTab')">
+
             Aptitude & English
+
         </button>
 
         <button
             class="tab-btn"
-            onclick="openTab('placementTab')">
+            onclick="openTab(event,'placementTab')">
+
             Placement Tracker
+
         </button>
 
         <button
             class="tab-btn"
-            onclick="openTab('notesTab')">
+            onclick="openTab(event,'notesTab')">
+
             Notes
+
         </button>
 
         <button
             class="tab-btn"
-            onclick="openTab('toolsTab')">
+            onclick="openTab(event,'toolsTab')">
+
             Tools
+
         </button>
 
     </div>
 
 </section>
 
-<!-- DASHBOARD TAB -->
+<!-- =========================
+     DASHBOARD TAB
+========================= -->
 
 <section
     id="dashboardTab"
     class="tab-content active-tab">
+
+    <div class="section-card">
+
+        <h2>
+            🎯 Front-End VLSI Roadmap
+        </h2>
+
+        <p>
+
+            Goal before August 4:
+
+        </p>
+
+        <br>
+
+        <ul>
+
+            <li>
+                Digital Electronics
+            </li>
+
+            <li>
+                Verilog HDL
+            </li>
+
+            <li>
+                SystemVerilog
+            </li>
+
+            <li>
+                UVM
+            </li>
+
+            <li>
+                C Programming
+            </li>
+
+            <li>
+                Python
+            </li>
+
+            <li>
+                AI for Chip Design
+            </li>
+
+            <li>
+                Aptitude
+            </li>
+
+            <li>
+                Communication Skills
+            </li>
+
+        </ul>
+
+    </div>
 
     <!-- SUBJECT PROGRESS -->
 
     <div class="section-card">
 
         <h2>
-            📊 Subject Wise Progress
+            📊 Subject Progress
         </h2>
 
         <!-- DIGITAL -->
@@ -189,6 +304,7 @@
                 <div
                     id="digitalProgress"
                     class="subject-bar">
+
                 </div>
 
             </div>
@@ -216,6 +332,7 @@
                 <div
                     id="verilogProgress"
                     class="subject-bar">
+
                 </div>
 
             </div>
@@ -243,23 +360,24 @@
                 <div
                     id="svProgress"
                     class="subject-bar">
+
                 </div>
 
             </div>
 
         </div>
 
-        <!-- APTITUDE -->
+        <!-- UVM -->
 
         <div class="subject-progress">
 
             <div class="subject-header">
 
                 <span>
-                    Aptitude
+                    UVM
                 </span>
 
-                <span id="aptitudePercent">
+                <span id="uvmPercent">
                     0%
                 </span>
 
@@ -268,25 +386,26 @@
             <div class="progress-container">
 
                 <div
-                    id="aptitudeProgress"
+                    id="uvmProgress"
                     class="subject-bar">
+
                 </div>
 
             </div>
 
         </div>
 
-        <!-- ENGLISH -->
+        <!-- C -->
 
         <div class="subject-progress">
 
             <div class="subject-header">
 
                 <span>
-                    English
+                    C Language
                 </span>
 
-                <span id="englishPercent">
+                <span id="cPercent">
                     0%
                 </span>
 
@@ -295,64 +414,21 @@
             <div class="progress-container">
 
                 <div
-                    id="englishProgress"
+                    id="cProgress"
                     class="subject-bar">
+
                 </div>
 
             </div>
 
         </div>
-
-    </div>
-
-    <!-- STUDY HOURS -->
-
-    <div class="section-card">
-
-        <h2>
-            ⏰ Daily Study Hours
-        </h2>
-
-        <label>
-
-            Target Hours
-
-            <input
-                type="number"
-                id="targetHours"
-                value="8">
-
-        </label>
-
-        <label>
-
-            Hours Completed Today
-
-            <input
-                type="number"
-                step="0.5"
-                id="studyHours">
-
-        </label>
-
-        <button id="saveHoursBtn">
-
-            Save Hours
-
-        </button>
-
-        <h3 id="hoursStatus">
-
-            Remaining Hours :
-            8
-
-        </h3>
 
     </div>
 
 </section>
-
-<!-- STUDY TAB -->
+<!-- =========================
+     STUDY TRACKER TAB
+========================= -->
 
 <section
     id="studyTab"
@@ -363,80 +439,23 @@
     <div class="section-card">
 
         <h2>
-            📘 Digital Electronics
+            📘 Digital Electronics (Morris Mano)
         </h2>
 
         <div class="topic-grid">
 
-            <label>
-                <input
-                    type="checkbox"
-                    class="task digital">
-                Number Systems
-            </label>
-
-            <label>
-                <input
-                    type="checkbox"
-                    class="task digital">
-                Boolean Algebra
-            </label>
-
-            <label>
-                <input
-                    type="checkbox"
-                    class="task digital">
-                Logic Gates
-            </label>
-
-            <label>
-                <input
-                    type="checkbox"
-                    class="task digital">
-                K Maps
-            </label>
-
-            <label>
-                <input
-                    type="checkbox"
-                    class="task digital">
-                Combinational Circuits
-            </label>
-
-            <label>
-                <input
-                    type="checkbox"
-                    class="task digital">
-                Sequential Circuits
-            </label>
-
-            <label>
-                <input
-                    type="checkbox"
-                    class="task digital">
-                Registers
-            </label>
-
-            <label>
-                <input
-                    type="checkbox"
-                    class="task digital">
-                Counters
-            </label>
-
-            <label>
-                <input
-                    type="checkbox"
-                    class="task digital">
-                FSM
-            </label>
-
-            <label>
-                <input
-                    type="checkbox"
-                    class="task digital">
-                Memory Basics
-            </label>
+            <label><input type="checkbox" class="task digital"> Number Systems</label>
+            <label><input type="checkbox" class="task digital"> Binary Arithmetic</label>
+            <label><input type="checkbox" class="task digital"> Boolean Algebra</label>
+            <label><input type="checkbox" class="task digital"> Logic Gates</label>
+            <label><input type="checkbox" class="task digital"> K-Maps</label>
+            <label><input type="checkbox" class="task digital"> Combinational Circuits</label>
+            <label><input type="checkbox" class="task digital"> Sequential Circuits</label>
+            <label><input type="checkbox" class="task digital"> Flip-Flops</label>
+            <label><input type="checkbox" class="task digital"> Registers</label>
+            <label><input type="checkbox" class="task digital"> Counters</label>
+            <label><input type="checkbox" class="task digital"> FSM</label>
+            <label><input type="checkbox" class="task digital"> Memory Basics</label>
 
         </div>
 
@@ -447,79 +466,24 @@
     <div class="section-card">
 
         <h2>
-            💻 Verilog
+            💻 Verilog (Samir Palnitkar)
         </h2>
 
         <div class="topic-grid">
 
-            <label>
-                <input
-                    type="checkbox"
-                    class="task verilog">
-                Introduction
-            </label>
-
-            <label>
-                <input
-                    type="checkbox"
-                    class="task verilog">
-                Modules
-            </label>
-                    <label>
-                <input
-                    type="checkbox"
-                    class="task verilog">
-                Data Types
-            </label>
-
-            <label>
-                <input
-                    type="checkbox"
-                    class="task verilog">
-                Operators
-            </label>
-
-            <label>
-                <input
-                    type="checkbox"
-                    class="task verilog">
-                Always Blocks
-            </label>
-
-            <label>
-                <input
-                    type="checkbox"
-                    class="task verilog">
-                Case Statements
-            </label>
-
-            <label>
-                <input
-                    type="checkbox"
-                    class="task verilog">
-                Testbench
-            </label>
-
-            <label>
-                <input
-                    type="checkbox"
-                    class="task verilog">
-                Tasks & Functions
-            </label>
-
-            <label>
-                <input
-                    type="checkbox"
-                    class="task verilog">
-                FSM Coding
-            </label>
-
-            <label>
-                <input
-                    type="checkbox"
-                    class="task verilog">
-                Mini Project
-            </label>
+            <label><input type="checkbox" class="task verilog"> Introduction</label>
+            <label><input type="checkbox" class="task verilog"> Modules</label>
+            <label><input type="checkbox" class="task verilog"> Data Types</label>
+            <label><input type="checkbox" class="task verilog"> Operators</label>
+            <label><input type="checkbox" class="task verilog"> Always Block</label>
+            <label><input type="checkbox" class="task verilog"> Initial Block</label>
+            <label><input type="checkbox" class="task verilog"> If Else</label>
+            <label><input type="checkbox" class="task verilog"> Case Statements</label>
+            <label><input type="checkbox" class="task verilog"> Tasks</label>
+            <label><input type="checkbox" class="task verilog"> Functions</label>
+            <label><input type="checkbox" class="task verilog"> Testbench</label>
+            <label><input type="checkbox" class="task verilog"> FSM Coding</label>
+            <label><input type="checkbox" class="task verilog"> FIFO Project</label>
 
         </div>
 
@@ -535,14 +499,16 @@
 
         <div class="topic-grid">
 
-            <label><input type="checkbox" class="task systemverilog"> Logic</label>
+            <label><input type="checkbox" class="task systemverilog"> Logic Data Type</label>
             <label><input type="checkbox" class="task systemverilog"> Interfaces</label>
             <label><input type="checkbox" class="task systemverilog"> Packages</label>
+            <label><input type="checkbox" class="task systemverilog"> Structures</label>
             <label><input type="checkbox" class="task systemverilog"> Classes</label>
             <label><input type="checkbox" class="task systemverilog"> Inheritance</label>
+            <label><input type="checkbox" class="task systemverilog"> Polymorphism</label>
             <label><input type="checkbox" class="task systemverilog"> Randomization</label>
             <label><input type="checkbox" class="task systemverilog"> Assertions</label>
-            <label><input type="checkbox" class="task systemverilog"> Coverage</label>
+            <label><input type="checkbox" class="task systemverilog"> Functional Coverage</label>
 
         </div>
 
@@ -558,20 +524,22 @@
 
         <div class="topic-grid">
 
-            <label><input type="checkbox" class="task uvm"> UVM Architecture</label>
-            <label><input type="checkbox" class="task uvm"> Sequence</label>
+            <label><input type="checkbox" class="task uvm"> UVM Introduction</label>
+            <label><input type="checkbox" class="task uvm"> Test</label>
+            <label><input type="checkbox" class="task uvm"> Environment</label>
+            <label><input type="checkbox" class="task uvm"> Agent</label>
             <label><input type="checkbox" class="task uvm"> Driver</label>
             <label><input type="checkbox" class="task uvm"> Monitor</label>
-            <label><input type="checkbox" class="task uvm"> Agent</label>
+            <label><input type="checkbox" class="task uvm"> Sequencer</label>
+            <label><input type="checkbox" class="task uvm"> Sequence</label>
             <label><input type="checkbox" class="task uvm"> Scoreboard</label>
-            <label><input type="checkbox" class="task uvm"> Environment</label>
-            <label><input type="checkbox" class="task uvm"> Test</label>
+            <label><input type="checkbox" class="task uvm"> UVM Phases</label>
 
         </div>
 
     </div>
 
-    <!-- C -->
+    <!-- C LANGUAGE -->
 
     <div class="section-card">
 
@@ -582,8 +550,11 @@
         <div class="topic-grid">
 
             <label><input type="checkbox" class="task c"> Variables</label>
+            <label><input type="checkbox" class="task c"> Data Types</label>
+            <label><input type="checkbox" class="task c"> Operators</label>
             <label><input type="checkbox" class="task c"> Loops</label>
             <label><input type="checkbox" class="task c"> Arrays</label>
+            <label><input type="checkbox" class="task c"> Strings</label>
             <label><input type="checkbox" class="task c"> Functions</label>
             <label><input type="checkbox" class="task c"> Pointers</label>
             <label><input type="checkbox" class="task c"> Structures</label>
@@ -605,8 +576,10 @@
 
             <label><input type="checkbox" class="task python"> Variables</label>
             <label><input type="checkbox" class="task python"> Lists</label>
+            <label><input type="checkbox" class="task python"> Tuples</label>
             <label><input type="checkbox" class="task python"> Dictionaries</label>
             <label><input type="checkbox" class="task python"> Functions</label>
+            <label><input type="checkbox" class="task python"> OOP</label>
             <label><input type="checkbox" class="task python"> File Handling</label>
             <label><input type="checkbox" class="task python"> NumPy</label>
             <label><input type="checkbox" class="task python"> Pandas</label>
@@ -615,9 +588,30 @@
 
     </div>
 
-</section>
+    <!-- AI FOR CHIP DESIGN -->
 
-<!-- APTITUDE TAB -->
+    <div class="section-card">
+
+        <h2>
+            🤖 AI For Chip Design
+        </h2>
+
+        <div class="topic-grid">
+
+            <label><input type="checkbox" class="task ai"> AI in RTL Design</label>
+            <label><input type="checkbox" class="task ai"> AI in Verification</label>
+            <label><input type="checkbox" class="task ai"> AI in Physical Design</label>
+            <label><input type="checkbox" class="task ai"> AI Timing Closure</label>
+            <label><input type="checkbox" class="task ai"> Generative AI for Semiconductors</label>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- =========================
+     APTITUDE & ENGLISH TAB
+========================= -->
 
 <section
     id="aptitudeTab"
@@ -626,7 +620,7 @@
     <div class="section-card">
 
         <h2>
-            🧠 Aptitude
+            🧠 Aptitude Mastery
         </h2>
 
         <div class="topic-grid">
@@ -655,23 +649,27 @@
     <div class="section-card">
 
         <h2>
-            🗣️ English
+            🗣️ English Communication
         </h2>
 
         <div class="topic-grid">
 
-            <label><input type="checkbox" class="task english"> Speaking</label>
-            <label><input type="checkbox" class="task english"> Listening</label>
+            <label><input type="checkbox" class="task english"> Speaking Practice</label>
+            <label><input type="checkbox" class="task english"> Listening Practice</label>
             <label><input type="checkbox" class="task english"> Vocabulary</label>
-            <label><input type="checkbox" class="task english"> Replying</label>
             <label><input type="checkbox" class="task english"> Reading</label>
+            <label><input type="checkbox" class="task english"> Daily Conversation</label>
+            <label><input type="checkbox" class="task english"> Interview Communication</label>
 
         </div>
 
     </div>
 
 </section>
-<!-- PLACEMENT TRACKER TAB -->
+
+<!-- =========================
+     PLACEMENT TAB
+========================= -->
 
 <section
     id="placementTab"
@@ -701,77 +699,23 @@
 
             <tbody>
 
-                <tr>
-                    <td>AMD</td>
-                    <td><input type="checkbox" class="placement"></td>
-                    <td><input type="checkbox" class="placement"></td>
-                    <td><input type="checkbox" class="placement"></td>
-                    <td><input type="checkbox" class="placement"></td>
-                </tr>
+                <tr><td>AMD</td><td><input type="checkbox" class="placement"></td><td><input type="checkbox" class="placement"></td><td><input type="checkbox" class="placement"></td><td><input type="checkbox" class="placement"></td></tr>
 
-                <tr>
-                    <td>Intel</td>
-                    <td><input type="checkbox" class="placement"></td>
-                    <td><input type="checkbox" class="placement"></td>
-                    <td><input type="checkbox" class="placement"></td>
-                    <td><input type="checkbox" class="placement"></td>
-                </tr>
+                <tr><td>Intel</td><td><input type="checkbox" class="placement"></td><td><input type="checkbox" class="placement"></td><td><input type="checkbox" class="placement"></td><td><input type="checkbox" class="placement"></td></tr>
 
-                <tr>
-                    <td>NVIDIA</td>
-                    <td><input type="checkbox" class="placement"></td>
-                    <td><input type="checkbox" class="placement"></td>
-                    <td><input type="checkbox" class="placement"></td>
-                    <td><input type="checkbox" class="placement"></td>
-                </tr>
+                <tr><td>NVIDIA</td><td><input type="checkbox" class="placement"></td><td><input type="checkbox" class="placement"></td><td><input type="checkbox" class="placement"></td><td><input type="checkbox" class="placement"></td></tr>
 
-                <tr>
-                    <td>Cadence</td>
-                    <td><input type="checkbox" class="placement"></td>
-                    <td><input type="checkbox" class="placement"></td>
-                    <td><input type="checkbox" class="placement"></td>
-                    <td><input type="checkbox" class="placement"></td>
-                </tr>
+                <tr><td>Cadence</td><td><input type="checkbox" class="placement"></td><td><input type="checkbox" class="placement"></td><td><input type="checkbox" class="placement"></td><td><input type="checkbox" class="placement"></td></tr>
 
-                <tr>
-                    <td>Synopsys</td>
-                    <td><input type="checkbox" class="placement"></td>
-                    <td><input type="checkbox" class="placement"></td>
-                    <td><input type="checkbox" class="placement"></td>
-                    <td><input type="checkbox" class="placement"></td>
-                </tr>
+                <tr><td>Synopsys</td><td><input type="checkbox" class="placement"></td><td><input type="checkbox" class="placement"></td><td><input type="checkbox" class="placement"></td><td><input type="checkbox" class="placement"></td></tr>
 
-                <tr>
-                    <td>Qualcomm</td>
-                    <td><input type="checkbox" class="placement"></td>
-                    <td><input type="checkbox" class="placement"></td>
-                    <td><input type="checkbox" class="placement"></td>
-                    <td><input type="checkbox" class="placement"></td>
-                </tr>
+                <tr><td>Qualcomm</td><td><input type="checkbox" class="placement"></td><td><input type="checkbox" class="placement"></td><td><input type="checkbox" class="placement"></td><td><input type="checkbox" class="placement"></td></tr>
 
-                <tr>
-                    <td>Texas Instruments</td>
-                    <td><input type="checkbox" class="placement"></td>
-                    <td><input type="checkbox" class="placement"></td>
-                    <td><input type="checkbox" class="placement"></td>
-                    <td><input type="checkbox" class="placement"></td>
-                </tr>
+                <tr><td>Texas Instruments</td><td><input type="checkbox" class="placement"></td><td><input type="checkbox" class="placement"></td><td><input type="checkbox" class="placement"></td><td><input type="checkbox" class="placement"></td></tr>
 
-                <tr>
-                    <td>Samsung</td>
-                    <td><input type="checkbox" class="placement"></td>
-                    <td><input type="checkbox" class="placement"></td>
-                    <td><input type="checkbox" class="placement"></td>
-                    <td><input type="checkbox" class="placement"></td>
-                </tr>
+                <tr><td>Samsung</td><td><input type="checkbox" class="placement"></td><td><input type="checkbox" class="placement"></td><td><input type="checkbox" class="placement"></td><td><input type="checkbox" class="placement"></td></tr>
 
-                <tr>
-                    <td>Tesla</td>
-                    <td><input type="checkbox" class="placement"></td>
-                    <td><input type="checkbox" class="placement"></td>
-                    <td><input type="checkbox" class="placement"></td>
-                    <td><input type="checkbox" class="placement"></td>
-                </tr>
+                <tr><td>Tesla</td><td><input type="checkbox" class="placement"></td><td><input type="checkbox" class="placement"></td><td><input type="checkbox" class="placement"></td><td><input type="checkbox" class="placement"></td></tr>
 
             </tbody>
 
@@ -781,7 +725,9 @@
 
 </section>
 
-<!-- NOTES TAB -->
+<!-- =========================
+     NOTES TAB
+========================= -->
 
 <section
     id="notesTab"
@@ -795,7 +741,7 @@
 
         <textarea
             id="dailyNotes"
-            placeholder="Write your daily study progress here...">
+            placeholder="Today's learning progress...">
         </textarea>
 
     </div>
@@ -808,7 +754,7 @@
 
         <textarea
             id="revisionNotes"
-            placeholder="Important concepts for revision...">
+            placeholder="Important revision concepts...">
         </textarea>
 
     </div>
@@ -828,13 +774,51 @@
 
 </section>
 
-<!-- TOOLS TAB -->
+<!-- =========================
+     TOOLS TAB
+========================= -->
 
 <section
     id="toolsTab"
     class="tab-content">
 
-    <!-- POMODORO -->
+    <div class="section-card">
+
+        <h2>
+            ⏰ Daily Study Hours
+        </h2>
+
+        <label>
+
+            Target Hours
+
+            <input
+                type="number"
+                id="targetHours"
+                value="8">
+
+        </label>
+
+        <label>
+
+            Completed Hours
+
+            <input
+                type="number"
+                id="studyHours"
+                step="0.5">
+
+        </label>
+
+        <button id="saveHoursBtn">
+            Save Hours
+        </button>
+
+        <h3 id="hoursStatus">
+            Remaining Hours : 8
+        </h3>
+
+    </div>
 
     <div class="section-card">
 
@@ -866,8 +850,6 @@
 
     </div>
 
-    <!-- CAREER CHECKLIST -->
-
     <div class="section-card">
 
         <h2>
@@ -876,46 +858,26 @@
 
         <div class="topic-grid">
 
-            <label>
-                <input type="checkbox" class="career">
-                Resume Updated
-            </label>
+            <label><input type="checkbox" class="career"> Resume Updated</label>
 
-            <label>
-                <input type="checkbox" class="career">
-                LinkedIn Updated
-            </label>
+            <label><input type="checkbox" class="career"> LinkedIn Updated</label>
 
-            <label>
-                <input type="checkbox" class="career">
-                GitHub Updated
-            </label>
+            <label><input type="checkbox" class="career"> GitHub Updated</label>
 
-            <label>
-                <input type="checkbox" class="career">
-                Verilog Project Completed
-            </label>
+            <label><input type="checkbox" class="career"> Digital Electronics Completed</label>
 
-            <label>
-                <input type="checkbox" class="career">
-                Digital Electronics Completed
-            </label>
+            <label><input type="checkbox" class="career"> Verilog Completed</label>
 
-            <label>
-                <input type="checkbox" class="career">
-                Aptitude Revision Completed
-            </label>
+            <label><input type="checkbox" class="career"> Aptitude Ready</label>
 
         </div>
 
     </div>
 
-    <!-- EXPORT -->
-
     <div class="section-card">
 
         <h2>
-            📤 Data Tools
+            📤 Data Management
         </h2>
 
         <button id="exportBtn">
@@ -930,13 +892,17 @@
 
 </section>
 
-<!-- FOOTER -->
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
     <p>
-        Built by Vishnu 🚀 |
-        Front-End VLSI Journey
+
+        Built By Vishnu 🚀 |
+        Front-End VLSI Career Dashboard
+
     </p>
 
 </footer>
