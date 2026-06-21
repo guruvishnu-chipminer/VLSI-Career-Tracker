@@ -2,7 +2,7 @@
 // TAB SWITCHING
 // ======================================
 
-function openTab(tabId) {
+function openTab(event, tabId) {
 
     const tabs =
         document.querySelectorAll(".tab-content");
