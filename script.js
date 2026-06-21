@@ -1,253 +1,563 @@
-// =========================
-// CHECKBOX SAVE & LOAD
-// =========================
+// ======================================
+// TAB SWITCHING
+// ======================================
 
-const checkboxes = document.querySelectorAll(".task");
+function openTab(tabId) {
 
-function saveCheckboxes() {
+    const tabs =
+        document.querySelectorAll(".tab-content");
+
+    tabs.forEach(tab => {
+
+        tab.classList.remove("active-tab");
+
+    });
+
+    document
+        .getElementById(tabId)
+        .classList.add("active-tab");
+
+    const buttons =
+        document.querySelectorAll(".tab-btn");
+
+    buttons.forEach(btn => {
+
+        btn.classList.remove("active");
+
+    });
+
+    event.target.classList.add("active");
+
+}
+
+// ======================================
+// DARK MODE
+// ======================================
+
+const darkBtn =
+    document.getElementById("darkModeBtn");
+
+function loadDarkMode() {
+
+    const dark =
+        localStorage.getItem("darkMode");
+
+    if (dark === "true") {
+
+        document.body.classList.add("dark");
+
+        darkBtn.innerHTML =
+            "☀ Light Mode";
+
+    }
+
+}
+
+darkBtn.addEventListener("click", () => {
+
+    document.body.classList.toggle("dark");
+
+    const enabled =
+        document.body.classList.contains("dark");
+
+    localStorage.setItem(
+        "darkMode",
+        enabled
+    );
+
+    darkBtn.innerHTML =
+        enabled
+            ? "☀ Light Mode"
+            : "🌙 Dark Mode";
+
+});
+
+// ======================================
+// CHECKBOX STORAGE
+// ======================================
+
+const tasks =
+    document.querySelectorAll(".task");
+
+function saveTasks() {
+
     let states = [];
 
-    checkboxes.forEach(cb => {
-        states.push(cb.checked);
+    tasks.forEach(task => {
+
+        states.push(task.checked);
+
     });
 
     localStorage.setItem(
-        "vlsi_tracker_checkboxes",
+        "vlsiTasks",
         JSON.stringify(states)
     );
 
-    updateProgress();
-    updateStreak();
+    updateAllProgress();
+
 }
 
-function loadCheckboxes() {
+function loadTasks() {
 
-    const saved = JSON.parse(
-        localStorage.getItem("vlsi_tracker_checkboxes")
-    );
+    const saved =
+        JSON.parse(
+            localStorage.getItem("vlsiTasks")
+        );
 
-    if(saved){
+    if (!saved) return;
 
-        checkboxes.forEach((cb,index)=>{
+    tasks.forEach((task, index) => {
 
-            cb.checked = saved[index];
+        task.checked =
+            saved[index];
 
-            if(cb.checked){
-                cb.parentElement.classList.add("completed");
-            }
+        if (task.checked) {
 
-        });
+            task.parentElement.classList.add(
+                "completed"
+            );
 
-    }
-
-    updateProgress();
-}
-
-checkboxes.forEach(cb => {
-
-    cb.addEventListener("change", ()=>{
-
-        if(cb.checked){
-            cb.parentElement.classList.add("completed");
         }
-        else{
-            cb.parentElement.classList.remove("completed");
-        }
-
-        saveCheckboxes();
 
     });
 
+}
+
+tasks.forEach(task => {
+
+    task.addEventListener(
+        "change",
+        () => {
+
+            if (task.checked) {
+
+                task.parentElement.classList.add(
+                    "completed"
+                );
+
+            } else {
+
+                task.parentElement.classList.remove(
+                    "completed"
+                );
+
+            }
+
+            saveTasks();
+
+        }
+    );
+
 });
 
-// =========================
-// PROGRESS BAR
-// =========================
+// ======================================
+// SUBJECT PROGRESS
+// ======================================
 
-function updateProgress(){
+function calculateSubjectProgress(
+    className,
+    barId,
+    percentId
+) {
 
-    let total = checkboxes.length;
+    const items =
+        document.querySelectorAll(
+            "." + className
+        );
 
     let completed = 0;
 
-    checkboxes.forEach(cb=>{
+    items.forEach(item => {
 
-        if(cb.checked){
+        if (item.checked) {
+
             completed++;
+
         }
 
     });
 
-    let percent = Math.round(
-        (completed/total)*100
-    );
+    const percent =
+        items.length === 0
+            ? 0
+            : Math.round(
+                  (completed /
+                      items.length) *
+                      100
+              );
+
+    document.getElementById(
+        barId
+    ).style.width =
+        percent + "%";
+
+    document.getElementById(
+        percentId
+    ).innerText =
+        percent + "%";
+
+    return percent;
+
+}
+
+// ======================================
+// OVERALL READINESS
+// ======================================
+
+function updateAllProgress() {
+
+    const digital =
+        calculateSubjectProgress(
+            "digital",
+            "digitalProgress",
+            "digitalPercent"
+        );
+
+    const verilog =
+        calculateSubjectProgress(
+            "verilog",
+            "verilogProgress",
+            "verilogPercent"
+        );
+
+    const sv =
+        calculateSubjectProgress(
+            "systemverilog",
+            "svProgress",
+            "svPercent"
+        );
+
+    const aptitude =
+        calculateSubjectProgress(
+            "aptitude",
+            "aptitudeProgress",
+            "aptitudePercent"
+        );
+
+    const english =
+        calculateSubjectProgress(
+            "english",
+            "englishProgress",
+            "englishPercent"
+        );
+
+    const weightedScore =
+
+        digital * 0.30 +
+        verilog * 0.25 +
+        aptitude * 0.20 +
+        english * 0.10 +
+        sv * 0.05;
+
+    const finalScore =
+        Math.round(weightedScore);
 
     document.getElementById(
         "overallProgress"
-    ).style.width = percent + "%";
+    ).style.width =
+        finalScore + "%";
 
     document.getElementById(
         "overallPercent"
-    ).innerText = percent + "% Completed";
+    ).innerText =
+        finalScore +
+        "% Interview Ready";
 
 }
 
-// =========================
-// NOTES SAVE
-// =========================
+// ======================================
+// NOTES
+// ======================================
 
-const notes = document.getElementById("notes");
-
-notes.addEventListener("input", ()=>{
-
-    localStorage.setItem(
-        "vlsi_notes",
-        notes.value
+const dailyNotes =
+    document.getElementById(
+        "dailyNotes"
     );
 
-});
+const revisionNotes =
+    document.getElementById(
+        "revisionNotes"
+    );
 
-function loadNotes(){
+const interviewNotes =
+    document.getElementById(
+        "interviewNotes"
+    );
 
-    let savedNotes =
-        localStorage.getItem("vlsi_notes");
+function saveNotes() {
 
-    if(savedNotes){
+    localStorage.setItem(
+        "dailyNotes",
+        dailyNotes.value
+    );
 
-        notes.value = savedNotes;
+    localStorage.setItem(
+        "revisionNotes",
+        revisionNotes.value
+    );
 
-    }
+    localStorage.setItem(
+        "interviewNotes",
+        interviewNotes.value
+    );
 
 }
 
-// =========================
-// AUGUST 4 COUNTDOWN
-// =========================
+function loadNotes() {
 
-function updateAugustTimer(){
+    dailyNotes.value =
+        localStorage.getItem(
+            "dailyNotes"
+        ) || "";
+
+    revisionNotes.value =
+        localStorage.getItem(
+            "revisionNotes"
+        ) || "";
+
+    interviewNotes.value =
+        localStorage.getItem(
+            "interviewNotes"
+        ) || "";
+
+}
+
+dailyNotes.addEventListener(
+    "input",
+    saveNotes
+);
+
+revisionNotes.addEventListener(
+    "input",
+    saveNotes
+);
+
+interviewNotes.addEventListener(
+    "input",
+    saveNotes
+);
+
+// ======================================
+// STUDY HOURS
+// ======================================
+
+const targetHours =
+    document.getElementById(
+        "targetHours"
+    );
+
+const studyHours =
+    document.getElementById(
+        "studyHours"
+    );
+
+const saveHoursBtn =
+    document.getElementById(
+        "saveHoursBtn"
+    );
+
+const hoursStatus =
+    document.getElementById(
+        "hoursStatus"
+    );
+
+function saveStudyHours() {
+
+    localStorage.setItem(
+        "targetHours",
+        targetHours.value
+    );
+
+    localStorage.setItem(
+        "studyHours",
+        studyHours.value
+    );
+
+    updateStudyHours();
+
+}
+
+function updateStudyHours() {
+
+    const target =
+        parseFloat(
+            targetHours.value || 0
+        );
+
+    const completed =
+        parseFloat(
+            studyHours.value || 0
+        );
+
+    const remaining =
+        target - completed;
+
+    hoursStatus.innerHTML =
+        "Remaining Hours : " +
+        remaining;
+
+}
+
+function loadStudyHours() {
+
+    targetHours.value =
+        localStorage.getItem(
+            "targetHours"
+        ) || 8;
+
+    studyHours.value =
+        localStorage.getItem(
+            "studyHours"
+        ) || 0;
+
+    updateStudyHours();
+
+}
+
+saveHoursBtn.addEventListener(
+    "click",
+    saveStudyHours
+);
+
+// ======================================
+// INITIAL LOAD
+// ======================================
+
+loadDarkMode();
+
+loadTasks();
+
+loadNotes();
+
+loadStudyHours();
+
+updateAllProgress();
+// ======================================
+// AUGUST 4 COUNTDOWN
+// ======================================
+
+function updateAugustTimer() {
 
     const target =
         new Date("2026-08-04T00:00:00");
 
-    const now = new Date();
+    const now =
+        new Date();
 
     const diff =
         target - now;
 
-    if(diff <= 0){
+    if (diff <= 0) {
 
         document.getElementById(
             "aug4Timer"
-        ).innerText = "Goal Day Reached";
+        ).innerHTML =
+            "Goal Reached 🚀";
 
         return;
+
     }
 
     const days =
-        Math.floor(diff/(1000*60*60*24));
-
-    const hours =
         Math.floor(
-            (diff%(1000*60*60*24))
-            /(1000*60*60)
+            diff /
+            (1000 * 60 * 60 * 24)
         );
 
     document.getElementById(
         "aug4Timer"
-    ).innerText =
-        `${days} Days ${hours} Hours`;
+    ).innerHTML =
+        days + " Days";
 
 }
 
-// =========================
-// MONTH END COUNTDOWN
-// =========================
+// ======================================
+// MONTH COUNTDOWN
+// ======================================
 
-function updateMonthTimer(){
+function updateMonthTimer() {
 
-    const now = new Date();
+    const now =
+        new Date();
 
     const endMonth =
         new Date(
             now.getFullYear(),
-            now.getMonth()+1,
-            0,
-            23,
-            59,
-            59
+            now.getMonth() + 1,
+            0
         );
 
     const diff =
         endMonth - now;
 
     const days =
-        Math.floor(diff/(1000*60*60*24));
-
-    const hours =
         Math.floor(
-            (diff%(1000*60*60*24))
-            /(1000*60*60)
+            diff /
+            (1000 * 60 * 60 * 24)
         );
 
     document.getElementById(
         "monthTimer"
-    ).innerText =
-        `${days} Days ${hours} Hours`;
+    ).innerHTML =
+        days + " Days";
 
 }
 
-// =========================
+// ======================================
 // WEEK COUNTDOWN
-// =========================
+// ======================================
 
-function updateWeekTimer(){
+function updateWeekTimer() {
 
-    const now = new Date();
+    const today =
+        new Date();
 
-    const day = now.getDay();
+    const day =
+        today.getDay();
 
     const remaining =
         7 - day;
 
     document.getElementById(
         "weekTimer"
-    ).innerText =
+    ).innerHTML =
         remaining + " Days";
 
 }
 
-// =========================
-// STREAK SYSTEM
-// =========================
+// ======================================
+// STREAK TRACKER
+// ======================================
 
-function updateStreak(){
+function updateStreak() {
 
     const today =
         new Date().toDateString();
 
     const lastDate =
         localStorage.getItem(
-            "last_activity_date"
+            "lastVisit"
         );
 
     let streak =
         parseInt(
             localStorage.getItem(
-                "vlsi_streak"
+                "streak"
             )
         ) || 0;
 
-    if(lastDate !== today){
+    if (lastDate !== today) {
 
         streak++;
 
         localStorage.setItem(
-            "vlsi_streak",
+            "streak",
             streak
         );
 
         localStorage.setItem(
-            "last_activity_date",
+            "lastVisit",
             today
         );
 
@@ -255,41 +565,290 @@ function updateStreak(){
 
     document.getElementById(
         "streak"
-    ).innerText =
-        streak + " Days";
+    ).innerHTML =
+        streak;
 
 }
 
-function loadStreak(){
+// ======================================
+// POMODORO TIMER
+// ======================================
 
-    let streak =
-        localStorage.getItem(
-            "vlsi_streak"
-        ) || 0;
+let timer;
+let totalSeconds = 1500;
+
+function updatePomodoroDisplay() {
+
+    const minutes =
+        Math.floor(
+            totalSeconds / 60
+        );
+
+    const seconds =
+        totalSeconds % 60;
 
     document.getElementById(
-        "streak"
-    ).innerText =
-        streak + " Days";
+        "pomodoroTimer"
+    ).innerHTML =
+
+        String(minutes)
+            .padStart(2, "0")
+        +
+        ":"
+        +
+        String(seconds)
+            .padStart(2, "0");
 
 }
 
-// =========================
-// INITIAL LOAD
-// =========================
+document
+.getElementById("startTimer")
+.addEventListener("click", () => {
 
-loadCheckboxes();
-loadNotes();
-loadStreak();
+    clearInterval(timer);
+
+    timer =
+        setInterval(() => {
+
+            if (
+                totalSeconds > 0
+            ) {
+
+                totalSeconds--;
+
+                updatePomodoroDisplay();
+
+            }
+
+        }, 1000);
+
+});
+
+document
+.getElementById("pauseTimer")
+.addEventListener("click", () => {
+
+    clearInterval(timer);
+
+});
+
+document
+.getElementById("resetTimer")
+.addEventListener("click", () => {
+
+    clearInterval(timer);
+
+    totalSeconds = 1500;
+
+    updatePomodoroDisplay();
+
+});
+
+// ======================================
+// PLACEMENT TRACKER
+// ======================================
+
+const placementBoxes =
+    document.querySelectorAll(
+        ".placement"
+    );
+
+function savePlacement() {
+
+    let states = [];
+
+    placementBoxes.forEach(box => {
+
+        states.push(
+            box.checked
+        );
+
+    });
+
+    localStorage.setItem(
+        "placementData",
+        JSON.stringify(states)
+    );
+
+}
+
+function loadPlacement() {
+
+    const saved =
+        JSON.parse(
+            localStorage.getItem(
+                "placementData"
+            )
+        );
+
+    if (!saved) return;
+
+    placementBoxes.forEach(
+        (box,index) => {
+
+        box.checked =
+            saved[index];
+
+    });
+
+}
+
+placementBoxes.forEach(box => {
+
+    box.addEventListener(
+        "change",
+        savePlacement
+    );
+
+});
+
+// ======================================
+// CAREER CHECKLIST
+// ======================================
+
+const careerBoxes =
+    document.querySelectorAll(
+        ".career"
+    );
+
+function saveCareer() {
+
+    let states = [];
+
+    careerBoxes.forEach(box => {
+
+        states.push(
+            box.checked
+        );
+
+    });
+
+    localStorage.setItem(
+        "careerData",
+        JSON.stringify(states)
+    );
+
+}
+
+function loadCareer() {
+
+    const saved =
+        JSON.parse(
+            localStorage.getItem(
+                "careerData"
+            )
+        );
+
+    if (!saved) return;
+
+    careerBoxes.forEach(
+        (box,index) => {
+
+        box.checked =
+            saved[index];
+
+    });
+
+}
+
+careerBoxes.forEach(box => {
+
+    box.addEventListener(
+        "change",
+        saveCareer
+    );
+
+});
+
+// ======================================
+// EXPORT CSV
+// ======================================
+
+document
+.getElementById("exportBtn")
+.addEventListener("click", () => {
+
+    let csv =
+        "VLSI Tracker Export\n";
+
+    csv +=
+        "Interview Readiness,"
+        +
+        document
+            .getElementById(
+                "overallPercent"
+            )
+            .innerText;
+
+    const blob =
+        new Blob(
+            [csv],
+            {
+                type:
+                "text/csv"
+            }
+        );
+
+    const a =
+        document.createElement("a");
+
+    a.href =
+        URL.createObjectURL(blob);
+
+    a.download =
+        "vlsi_progress.csv";
+
+    a.click();
+
+});
+
+// ======================================
+// RESET TRACKER
+// ======================================
+
+document
+.getElementById("resetBtn")
+.addEventListener("click", () => {
+
+    const confirmReset =
+        confirm(
+            "Reset all tracker data?"
+        );
+
+    if (
+        !confirmReset
+    ) return;
+
+    localStorage.clear();
+
+    location.reload();
+
+});
+
+// ======================================
+// FINAL INITIALIZATION
+// ======================================
+
+loadPlacement();
+
+loadCareer();
 
 updateAugustTimer();
+
 updateMonthTimer();
+
 updateWeekTimer();
 
-setInterval(()=>{
+updateStreak();
+
+updatePomodoroDisplay();
+
+setInterval(() => {
 
     updateAugustTimer();
+
     updateMonthTimer();
+
     updateWeekTimer();
 
-},1000);
+}, 60000);
