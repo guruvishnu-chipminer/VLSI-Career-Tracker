@@ -331,19 +331,8 @@ function updateAllProgress(){
         "aiPercent"
     );
 
-    const aptitude =
-    calculateSubjectProgress(
-        "aptitude",
-        "aptitudeProgress",
-        "aptitudePercent"
-    );
-
-    const english =
-    calculateSubjectProgress(
-        "english",
-        "englishProgress",
-        "englishPercent"
-    );
+const aptitude = 0;
+const english = 0;
 
     const readiness = Math.round(
 
